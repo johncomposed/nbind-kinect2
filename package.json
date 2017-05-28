@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "John Williams",
   "scripts": {
+    "autogypi": "autogypi",
     "node-gyp": "node-gyp",
     "ndts": "ndts",
     "emcc-path": "emcc-path",
@@ -13,16 +14,17 @@
     "watch:tsc": "tsc --watch",
 
     "build:tsc": "tsc",
-    "build:native": "eval 'node-gyp configure build && copyasm . dist'",
+    "build:native": "eval 'autogypi --init-gyp -p nbind && node-gyp configure build && copyasm . dist'",
     "build:typings": "ndts dist > dist/main.d.ts",
-    "build": "eval '(npm run build:native || echo Warning: problems with native build) && npm run build:tsc -s && npm run build:typings -s'",
+    "build": "eval 'npm run build:native -s && npm run build:tsc -s && npm run build:typings -s'",
 
     "start": "node dist/main.js",
     "start:tsc": "eval 'tsc && node dist/main.js'",
 
-    "prepare": "npm run build -s"
+    "install": "npm run build -s"
   },
   "dependencies": {
+    "autogypi": "^0.2.2",
     "nbind": "^0.3.6",
     "node-gyp": "^3.3.1"
   },

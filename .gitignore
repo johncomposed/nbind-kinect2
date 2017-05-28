@@ -3,5 +3,8 @@ node_modules
 build
 dist
 *.log
+auto*.gypi
+
 libfreenect2
 tmp
+
