@@ -28,12 +28,8 @@
   },
   "devDependencies": {
     "@types/node": "^7.0.22",
-    "require-rebuild": "^1.2.8",
     "typescript": "^2.1.4"
   },
   "main": "dist/main.js",
-  "types": "dist/main.d.ts",
-  "files": [
-    "dist/*"
-  ]
+  "types": "dist/main.d.ts"
 }
