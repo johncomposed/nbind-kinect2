@@ -26,11 +26,11 @@
   "dependencies": {
     "autogypi": "^0.2.2",
     "nbind": "^0.3.6",
-    "node-gyp": "^3.3.1"
-  },
-  "devDependencies": {
+    "node-gyp": "^3.3.1",
     "@types/node": "^7.0.22",
     "typescript": "^2.1.4"
+  },
+  "devDependencies": {
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts"
