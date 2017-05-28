@@ -1,6 +1,5 @@
 import * as nbind from 'nbind';
 
-
 const lib = nbind.init(__dirname).lib as any;
 
 export default function() {

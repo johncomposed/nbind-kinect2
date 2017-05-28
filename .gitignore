@@ -1,7 +1,7 @@
+dist/nbind.node
 
 node_modules
 build
-dist
 *.log
 auto*.gypi
 

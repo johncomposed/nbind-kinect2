@@ -12,8 +12,8 @@
     "copyasm": "copyasm",
 
     "watch:tsc": "tsc --watch",
-
     "build:tsc": "tsc",
+
     "build:native": "eval 'autogypi --init-gyp -p nbind && node-gyp configure build && copyasm . dist'",
     "build:typings": "ndts dist > dist/main.d.ts",
     "build": "eval 'npm run build:native -s && npm run build:tsc -s && npm run build:typings -s'",
@@ -21,16 +21,17 @@
     "start": "node dist/main.js",
     "start:tsc": "eval 'tsc && node dist/main.js'",
 
-    "install": "npm run build -s"
+    "install": "npm run build:native -s",
+    "prepare": "npm run build -s"
   },
   "dependencies": {
     "autogypi": "^0.2.2",
     "nbind": "^0.3.6",
-    "node-gyp": "^3.3.1",
-    "@types/node": "^7.0.22",
-    "typescript": "^2.1.4"
+    "node-gyp": "^3.3.1"
   },
   "devDependencies": {
+    "@types/node": "^7.0.22",
+    "typescript": "^2.1.4"
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts"
