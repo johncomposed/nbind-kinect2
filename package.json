@@ -14,7 +14,7 @@
     "watch:tsc": "tsc --watch",
     "build:tsc": "tsc",
 
-    "build:native": "eval 'autogypi --init-gyp -p nbind && node-gyp configure build && copyasm . dist'",
+    "build:native": "eval 'autogypi --init-gyp -p nbind -s src/kinect.cc && node-gyp configure build && copyasm . dist'",
     "build:typings": "ndts dist > dist/main.d.ts",
     "build": "eval 'npm run build:native -s && npm run build:tsc -s && npm run build:typings -s'",
 
