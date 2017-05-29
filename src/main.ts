@@ -1,11 +1,9 @@
 import * as nbind from 'nbind';
 
-const lib = nbind.init(__dirname).lib as any;
+const lib = require('./nbind.node'); 
+const Kinect = lib.Kinect as any; 
 
-export default function() {
-  console.log('Platform: ' + lib.Kinect.test());
-}
-
+export default Kinect;
 
 interface VRDisplayCapabilities {
   readonly hasPointCloud: Boolean;
