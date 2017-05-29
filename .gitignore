@@ -3,7 +3,12 @@ dist/nbind.node
 node_modules
 build
 *.log
+
+
+binding.gyp
+autogypi.json
 auto*.gypi
+
 
 libfreenect2
 tmp

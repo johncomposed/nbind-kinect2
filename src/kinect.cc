@@ -12,14 +12,12 @@
 
 
 class Kinect {
-private:
- 
+
 public:
-  static std::string test() { return "native module!"; }
+  static std::string test() { return("native module!"); }
 
   Kinect(const int user_device_number) {
     printf("Hello World (kinect)\n");
-
   }
 };
 
