@@ -1,6 +1,6 @@
 {
   "name": "nbind-kinect2",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Node bindings to kinect 2 that follow the recently-introduced webAR standard",
   "license": "MIT",
   "author": "John Williams",
