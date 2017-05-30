@@ -23,7 +23,8 @@
     "start": "node dist/main.js",
     "start:tsc": "eval 'tsc && node dist/main.js'",
 
-    "install": "eval 'npm run build:autogypi -s && npm run build:native -s'",
+    "install": "eval 'npm run build:autogypi -s'",
+    "postinstall": "copyasm . dist",
     "prepare": "npm run build -s"
   },
   "dependencies": {

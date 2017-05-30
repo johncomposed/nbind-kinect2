@@ -12,4 +12,4 @@ auto*.gypi
 
 libfreenect2
 tmp
-
+bin
