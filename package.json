@@ -14,7 +14,7 @@
     "watch:tsc": "tsc --watch",
     "build:tsc": "tsc",
 
-    "build:autogypi": "autogypi -r build -p nbind",
+    "build:autogypi": "autogypi -p nbind",
 
     "build:native": "eval 'node-gyp configure build && copyasm . dist'",
     "build:typings": "ndts dist > dist/main.d.ts",
