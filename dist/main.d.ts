@@ -1,9 +1,12 @@
 export class NBindBase { free?(): void }
 
-export class Kinect extends NBindBase {
-	/** Kinect(int32_t); */
-	constructor(p0: number);
+export class Freenect2 extends NBindBase {
+	/** Freenect2(void *); */
+	constructor(p0: any);
 
-	/** static std::string test(); */
-	static test(): string;
+	/** Freenect2(); */
+	constructor();
+
+	/** int32_t enumerateDevices(); */
+	enumerateDevices(): number;
 }
