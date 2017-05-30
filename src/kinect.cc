@@ -9,31 +9,56 @@
 #include "nbind/nbind.h"
 
 #include <libfreenect2/libfreenect2.hpp>
+// using namespace libfreenect2;
+// #include <libfreenect2/frame_listener_impl.h>
+// #include <libfreenect2/registration.h>
+// #include <libfreenect2/packet_pipeline.h>
+// #include <libfreenect2/logger.h>
 
 
-class Kinect {
+// class JS_Freenect2 : public libfreenect2::Freenect2 {
+// public:
+//     JS_Freenect2(): libfreenect2::Freenect2() {}
+//     ~JS_Freenect2() {}
+
+
+//   // public:
+//   //   // int enumerateDevices
+
+
+//     // Stuff goes here
+// };
+
+
+class JS_Freenect2 {
+private:
+  libfreenect2::Freenect2 freenect2;
 
 public:
-  static std::string test() { return("native module!"); }
-
-  Kinect(const int user_device_number) {
-    printf("Hello World (kinect)\n");
-  }
+  JS_Freenect2() {}
+  std::string test() { return "native module!"; }
+  int enumerateDevices() { return freenect2.enumerateDevices(); }
 };
 
 
+namespace libfreenect2 {
+  NBIND_CLASS(Freenect2) {
+    construct<void*>();
+    construct<>();
+
+    // method(test);
+    method(enumerateDevices);
+  }
 
 
 
-#ifdef NBIND_CLASS
-
-NBIND_CLASS(Kinect) {
-  construct<int>();
-
-  method(test);
 }
 
-#endif
+
+
+
+
+
 
 
 

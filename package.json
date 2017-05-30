@@ -14,14 +14,16 @@
     "watch:tsc": "tsc --watch",
     "build:tsc": "tsc",
 
-    "build:native": "eval 'autogypi --init-gyp -p nbind -s src/kinect.cc && node-gyp configure build && copyasm . dist'",
+    "build:autogypi": "autogypi -r build -p nbind",
+
+    "build:native": "eval 'node-gyp configure build && copyasm . dist'",
     "build:typings": "ndts dist > dist/main.d.ts",
-    "build": "eval 'npm run build:native -s && npm run build:tsc -s && npm run build:typings -s'",
+    "build": "eval 'npm run build:native -s && npm run build:native -s && npm run build:tsc -s && npm run build:typings -s'",
 
     "start": "node dist/main.js",
     "start:tsc": "eval 'tsc && node dist/main.js'",
 
-    "install": "npm run build:native -s",
+    "install": "eval 'npm run build:autogypi -s && npm run build:native -s'",
     "prepare": "npm run build -s"
   },
   "dependencies": {

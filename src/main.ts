@@ -1,9 +1,18 @@
 import * as nbind from 'nbind';
-
 const lib = require('./nbind.node'); 
-const Kinect = lib.Kinect as any; 
 
+const Kinect = new lib.Freenect2();
 export default Kinect;
+
+
+// File called directly
+if (require.main === module) {
+  console.log(Kinect.enumerateDevices())  
+}
+
+
+
+
 
 interface VRDisplayCapabilities {
   readonly hasPointCloud: Boolean;
