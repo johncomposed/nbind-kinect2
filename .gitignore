@@ -5,7 +5,7 @@ build
 *.log
 
 
-binding.gyp
+
 autogypi.json
 auto*.gypi
 
