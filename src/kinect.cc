@@ -6,7 +6,7 @@
 // #include <signal.h>
 
 #include "uv.h"
-#include "node_buffer.h"
+// #include "node_buffer.h"
 
 #include "nbind/api.h"
 #include "nbind/nbind.h"
@@ -88,14 +88,7 @@ public:
         dev->close();
       }
       
-      // dev->stop();
-      // dev->close();
-
-
-      // std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-
       // togglePause();
-
 
       // registration = new libfreenect2::Registration(
       //   dev->getIrCameraParams(), 
@@ -104,44 +97,31 @@ public:
 
       // libfreenect2::Frame undistorted(512, 424, 4), registered(512, 424, 4);
 
+      // while(!shutdown) {
+      //   if (!bananas->waitForNewFrame(frames, 10*1000)) {
+      //     std::cout << "timeout!" << std::endl;
+      //     return -1;
+      //   }
 
-      // Loop
-    //   while(!shutdown) {
-    //     if (!bananas->waitForNewFrame(frames, 10*1000)) {
-          // std::cout << "timeout!" << std::endl;
-    //       return -1;
-    //     }
+      //   libfreenect2::Frame* rgb   = frames[libfreenect2::Frame::Color];
+      //   libfreenect2::Frame* ir    = frames[libfreenect2::Frame::Ir];
+      //   libfreenect2::Frame* depth = frames[libfreenect2::Frame::Depth];
 
-        // libfreenect2::Frame* rgb   = frames[libfreenect2::Frame::Color];
-        // libfreenect2::Frame* ir    = frames[libfreenect2::Frame::Ir];
-        // libfreenect2::Frame* depth = frames[libfreenect2::Frame::Depth];
-
-    //     registration->apply(rgb, depth, &undistorted, &registered);
+      //   registration->apply(rgb, depth, &undistorted, &registered);
         
-    //     framecount++;
-    //     bananas->release(frames);
+      //   framecount++;
+      //   bananas->release(frames);
 
-    //     // libfreenect2::this_thread::sleep_for(libfreenect2::chrono::milliseconds(100));
-    //   }
+      //   // libfreenect2::this_thread::sleep_for(libfreenect2::chrono::milliseconds(100));
+      // }
 
-    //   // Loop over
-    //   dev->stop();
-    //   dev->close();
+      // // Loop over
+      // dev->stop();
+      // dev->close();
 
     }
     return framecount;
   }
-
-
-  // libfreenect2::FrameMap gimmeFrame() {
-  //   togglePause();
-
-  //   // libfreenect2::Frame* rgb   = frames[libfreenect2::Frame::Color];
-  //   // libfreenect2::Frame* ir    = frames[libfreenect2::Frame::Ir   ];
-  //   // libfreenect2::Frame* depth = frames[libfreenect2::Frame::Depth];
-
-  //   return frames;
-  // }
 
 
 
@@ -157,8 +137,6 @@ NBIND_CLASS(Kinect) {
 
 
   method(test);
-  // method(gimmeFrame);
-  // method(openDefaultDevice);
 }
 
 

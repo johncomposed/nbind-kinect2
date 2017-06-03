@@ -4,6 +4,6 @@ export class Kinect extends NBindBase {
 	/** Kinect(); */
 	constructor();
 
-	/** uint32_t test(); */
+	/** int32_t test(); */
 	test(): number;
 }

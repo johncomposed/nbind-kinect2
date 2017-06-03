@@ -1,33 +1,31 @@
 import * as nbind from 'nbind';
 import VRContextWrapper from "./VRContextWrapper";
-const lib = require('./nbind.node'); 
 
-const Kinect = new lib.Kinect();
-
-
-// export class Kinect {
-//   constructor() {
-
-//   }
-// }
-
-
-
-
-
-export default function stub() {
-  console.log('stub');
+interface Options {
+  electron?: boolean;
 }
 
+function initLib(options = {} as Options) {
 
+  const lib = options.electron ? require('./nbind-electron.node') : require('./nbind.node'); 
+
+
+  //  if (!window && global) global.window = _window;
+  //  Object.keys(_window).forEach(k => window[k] = _window[k]);
+
+  return lib;
+}
 
 
 
 // File called directly
 if (require.main === module) {
+  const lib = initLib();
+  const Kinect = new lib.Kinect();
+
+
   console.log(Kinect.test());
-  // console.log(Freenect.enumerateDevices())  
-}
+} 
 
 
-
+export default initLib;
