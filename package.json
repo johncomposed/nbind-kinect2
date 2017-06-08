@@ -4,25 +4,25 @@
   "description": "Node bindings to kinect 2 that follow the recently-introduced webAR standard",
   "license": "MIT",
   "author": "John Williams",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "scripts": {
     "autogypi": "autogypi",
     "node-gyp": "node-gyp",
     "ndts": "ndts",
     "emcc-path": "emcc-path",
     "copyasm": "copyasm",
-
     "watch:tsc": "tsc --watch",
     "build:tsc": "tsc",
-
     "build:autogypi": "autogypi -p nbind",
-    "build:native": "eval 'node-gyp configure build && copyasm . dist'",
+    "build:native": "eval 'node-gyp rebuild && copyasm . dist'",
     "build:typings": "ndts dist > dist/main.d.ts",
-    
+    "build:electron": "cross-env HOME=./tmp/.electron-gyp node-gyp rebuild--target=1.4.13 --dist-url=https://atom.io/download/electron",
+
     "build": "eval 'npm run build:native -s && npm run build:tsc -s && npm run build:typings -s'",
 
     "start": "node dist/main.js",
     "start:tsc": "eval 'tsc && node dist/main.js'",
-
     "install": "npm run build:autogypi -s",
     "postinstall": "npm run build:native -s",
     "prepare": "npm run build -s"
@@ -34,8 +34,10 @@
   },
   "devDependencies": {
     "@types/node": "^7.0.22",
+    "cross-env": "^5.0.1",
     "typescript": "^2.1.4"
   },
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts"
+  "optionalDependencies": {
+    "electron-prebuilt": "^1.4.13"
+  }
 }

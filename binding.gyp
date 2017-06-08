@@ -1,6 +1,8 @@
 {
+  "target_name": "nbind-kinect2",
   "targets": [
     {
+      "target_name": "nbind-kinect2",
       "sources": [
         "./src/kinect.cc",
       ],
